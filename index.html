@@ -145,6 +145,11 @@ section{padding-block:clamp(56px,9vw,104px)}
 .load-4{animation:rise .7s .5s cubic-bezier(.2,.8,.2,1) both}
 @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 
+/* tarja de oferta no topo */
+.topbar{display:block;margin-inline:-16px;background:var(--coral);color:#fff;text-align:center;text-decoration:none;font-family:var(--f-display);font-weight:700;font-size:clamp(11px,3.6vw,19px);letter-spacing:.01em;line-height:1;padding:12px 10px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topbar b{font-weight:800;color:#fff}
+.topbar span{display:inline-block;transition:transform .2s}
+.topbar:hover span{transform:translateX(4px)}
 /* pain */
 .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
 .pain{background:var(--sheet);border-radius:var(--r-md);padding:24px;display:grid;gap:10px;align-content:start;min-width:0}
@@ -418,8 +423,27 @@ mark.ph{background:#FFE7A3;color:var(--ink);border-radius:4px;padding:0 4px}
   html{scroll-behavior:auto}
 }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1102207999190568');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1102207999190568&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
+
+<a class="topbar" href="#oferta">🔥 <b>OFERTA POR TEMPO LIMITADO:</b> 71% OFF</a>
 
 <div class="wrap">
 
@@ -903,5 +927,17 @@ mark.ph{background:#FFE7A3;color:var(--ink);border-radius:4px;padding:0 4px}
 })();
 </script>
 
+<script>
+// Meta Pixel: quem rola até a oferta (ViewContent) e quem clica para o checkout (InitiateCheckout)
+(function(){
+  if (!window.fbq) return;
+  var ofr = document.getElementById('oferta'), seen = false;
+  if (ofr && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function(es, o){ es.forEach(function(e){ if (e.isIntersecting && !seen) { seen = true; fbq('track', 'ViewContent', {content_name:'Kit Leitura Infantil', value:27.90, currency:'BRL'}); o.disconnect(); } }); }, {threshold:.4}).observe(ofr);
+  }
+  var btn = document.getElementById('checkout');
+  if (btn) btn.addEventListener('click', function(){ fbq('track', 'InitiateCheckout', {content_name:'Kit Leitura Infantil', value:27.90, currency:'BRL'}); });
+})();
+</script>
 </body>
 </html>
