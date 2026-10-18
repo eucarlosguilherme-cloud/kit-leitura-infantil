@@ -931,9 +931,9 @@ src="https://www.facebook.com/tr?id=1102207999190568&ev=PageView&noscript=1"
 // Meta Pixel: quem rola até a oferta (ViewContent) e quem clica para o checkout (InitiateCheckout)
 (function(){
   if (!window.fbq) return;
-  var ofr = document.getElementById('oferta'), seen = false;
+  var ofr = document.querySelector('.price-box') || document.getElementById('oferta'), seen = false;
   if (ofr && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function(es, o){ es.forEach(function(e){ if (e.isIntersecting && !seen) { seen = true; fbq('track', 'ViewContent', {content_name:'Kit Leitura Infantil', value:27.90, currency:'BRL'}); o.disconnect(); } }); }, {threshold:.4}).observe(ofr);
+    new IntersectionObserver(function(es, o){ es.forEach(function(e){ if (e.isIntersecting && !seen) { seen = true; fbq('track', 'ViewContent', {content_name:'Kit Leitura Infantil', value:27.90, currency:'BRL'}); o.disconnect(); } }); }, {threshold:.3}).observe(ofr);
   }
   var btn = document.getElementById('checkout');
   if (btn) btn.addEventListener('click', function(){ fbq('track', 'InitiateCheckout', {content_name:'Kit Leitura Infantil', value:27.90, currency:'BRL'}); });
