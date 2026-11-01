@@ -72,9 +72,8 @@ section{padding-block:clamp(56px,9vw,104px)}
 /* página real do kit */
 .pg{background:#fff;border-radius:6px;box-shadow:var(--page-shadow);aspect-ratio:210/297;object-fit:cover;width:100%;height:auto}
 .pg.land{aspect-ratio:297/210}
-.zoom{cursor:zoom-in;transition:transform .25s ease, box-shadow .25s ease}
-.zoom:hover{transform:translateY(-4px) rotate(0deg)!important}
-.zoom:focus-visible{outline:3px solid var(--coral);outline-offset:4px}
+/* folhas de exemplo: sem abrir, sem arrastar, sem menu de salvar */
+img{-webkit-touch-callout:none;-webkit-user-drag:none;-webkit-user-select:none;user-select:none;pointer-events:none}
 
 /* top strip */
 .strip{margin-inline:-16px;background:var(--ink);color:var(--paper);text-align:center;font-weight:700;font-size:14px;padding:10px 16px}
@@ -289,7 +288,7 @@ section{padding-block:clamp(56px,9vw,104px)}
 .price .val{font-size:clamp(76px,10vw,104px);letter-spacing:-.05em}
 .price .cents{font-size:34px;margin-top:14px;margin-left:1px}
 .price-sub{font-size:15px;color:var(--ink-soft)}
-.hot{font-family:var(--f-display);font-weight:800;font-size:clamp(16px,2vw,19px);letter-spacing:.04em;text-transform:uppercase;background:var(--coral);color:#fff;border-radius:999px;padding:8px 20px;box-shadow:0 6px 16px -6px color-mix(in srgb,var(--coral) 70%,transparent);animation:hotpulse 1.6s ease-in-out infinite}
+.hot{font-family:var(--f-display);font-weight:800;font-size:clamp(16px,2vw,19px);letter-spacing:.04em;text-transform:uppercase;background:var(--coral);color:#fff;border-radius:999px;padding:8px 20px;box-shadow:0 6px 16px -6px color-mix(in srgb,var(--coral) 70%,transparent)}
 .hot b{color:var(--sun)}
 @keyframes hotpulse{50%{transform:scale(1.05)}}
 .will{font-family:var(--f-display);font-weight:700;font-size:clamp(22px,3vw,28px);color:var(--ink-soft);line-height:1}
@@ -313,7 +312,7 @@ section{padding-block:clamp(56px,9vw,104px)}
 
 /* guarantee */
 .guarantee{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;max-width:820px;margin-inline:auto}
-.seal{width:150px;height:150px;border-radius:50%;background:var(--sun);color:var(--navy);display:grid;place-items:center;text-align:center;font-family:var(--f-display);font-weight:800;line-height:1;box-shadow:inset 0 0 0 8px color-mix(in srgb,#fff 25%,transparent);animation:sway 18s linear infinite}
+.seal{width:150px;height:150px;border-radius:50%;background:var(--sun);color:var(--navy);display:grid;place-items:center;text-align:center;font-family:var(--f-display);font-weight:800;line-height:1;box-shadow:inset 0 0 0 8px color-mix(in srgb,#fff 25%,transparent)}
 .seal b{display:block;font-size:56px}
 .seal span{font-size:14px;letter-spacing:.06em}
 @keyframes sway{from{transform:rotate(-8deg)}50%{transform:rotate(8deg)}to{transform:rotate(-8deg)}}
@@ -356,17 +355,39 @@ mark.ph{background:#FFE7A3;color:var(--ink);border-radius:4px;padding:0 4px}
 .sticky .p small{display:block;font-family:var(--f-body);font-size:12px;font-weight:600;color:var(--ink-soft)}
 .sticky .btn{padding:12px 22px;font-size:17px}
 
-/* lightbox */
-.lightbox[hidden]{display:none}
-.lightbox{position:fixed;inset:0;z-index:50;background:rgba(10,16,36,.86);display:grid;place-items:center;padding:calc(20px + env(safe-area-inset-top,0px)) 16px calc(20px + env(safe-area-inset-bottom,0px));cursor:zoom-out}
-.lightbox img{max-height:88vh;max-width:min(92vw,720px);width:auto;border-radius:8px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);background:#fff}
-.lightbox img.land{max-width:min(94vw,1000px)}
-.lightbox p{color:#fff;font-weight:700;text-align:center;margin-top:12px}
-.lightbox button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:#1B2A5C;font-size:22px;font-weight:800;cursor:pointer}
 
 /* reveal: visible at rest, animates when it scrolls in */
 .reveal.in{animation:rise .6s cubic-bezier(.2,.8,.2,1) both}
 
+/* selo +5 bônus no topo */
+.seal5{position:absolute;z-index:10;left:-1%;top:-3%;width:clamp(92px,13vw,148px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#33479A,var(--navy) 70%);color:#fff;border:5px solid #fff;display:grid;place-content:center;text-align:center;font-family:var(--f-display);font-weight:800;line-height:.9;box-shadow:0 16px 28px -12px rgba(27,42,92,.6);rotate:-10deg;animation:pop .6s cubic-bezier(.2,1.4,.4,1) .7s both}
+.seal5 b{font-size:clamp(34px,5vw,56px);color:var(--sun)}
+.seal5 span{font-size:clamp(15px,2vw,22px);letter-spacing:.02em}
+.seal5 small{font-family:var(--f-body);font-weight:800;font-size:clamp(9px,1.1vw,12px);letter-spacing:.12em;text-transform:uppercase;opacity:.85;margin-top:3px}
+.chip.hot{background:var(--coral);color:#fff;box-shadow:0 2px 0 #C23F22}
+.chip.hot i{color:var(--sun)}
+/* carrossel dos 5 bônus */
+#bonus-show{margin-top:clamp(8px,2vw,24px)}
+#bonus-show h2 .n5{color:var(--coral)}
+.bs{position:relative;margin-top:clamp(24px,4vw,40px)}
+.bs-track{display:flex;gap:16px;overflow-x:auto;scrollbar-width:none;padding:6px 2px 18px;margin-inline:-2px}
+.bs-track::-webkit-scrollbar{display:none}
+.bs-slide{flex:0 0 min(86%,760px);position:relative;overflow:hidden;border-radius:var(--r-lg);background:var(--c);color:#fff;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:clamp(16px,3vw,32px);padding:clamp(22px,3.4vw,40px);box-shadow:0 24px 44px -24px color-mix(in srgb,var(--c) 80%,#000)}
+.bs-slide::before{content:attr(data-n);position:absolute;right:-.06em;bottom:-.28em;font-family:var(--f-display);font-weight:800;font-size:clamp(170px,26vw,300px);line-height:1;color:rgba(255,255,255,.08);pointer-events:none}
+.bs-shots{position:relative;height:clamp(220px,30vw,320px)}
+.bs-shots img{position:absolute;top:6%;height:88%;width:auto;max-width:none;border-radius:8px;background:#fff;box-shadow:0 18px 30px -12px rgba(0,0,0,.45)}
+.bs-shots img:first-child{right:calc(50% - 44px);rotate:-6deg;z-index:2}
+.bs-shots img:nth-child(2){left:calc(50% - 44px);rotate:6deg}
+.bs-shots img.land{height:auto;width:min(92%,400px);max-height:88%;object-fit:contain;left:50%;right:auto;top:50%;translate:-50% -50%;rotate:-4deg}
+.bs-txt{display:grid;gap:12px;position:relative;z-index:1}
+.bs-tag{justify-self:start;font-family:var(--f-body);font-weight:900;font-size:13px;letter-spacing:.12em;text-transform:uppercase;background:var(--sun);color:var(--navy);border-radius:999px;padding:6px 14px;box-shadow:0 3px 0 rgba(0,0,0,.18)}
+.bs-txt h3{font-size:clamp(26px,3.4vw,38px);font-weight:800;line-height:1.02}
+.bs-txt p{font-size:clamp(15px,1.7vw,18px);line-height:1.45;opacity:.95}
+.bs-inc{justify-self:start;font-weight:800;font-size:14px;background:rgba(255,255,255,.18);border-radius:999px;padding:5px 12px}
+@media (max-width:680px){
+  .bs-slide{grid-template-columns:1fr;flex-basis:90%;padding:22px 20px 24px}
+  .bs-shots{height:min(70vw,280px)}
+}
 @media (max-width:900px){
   .offer,.how{grid-template-columns:1fr}
   .how-img{max-width:300px;margin-inline:auto}
@@ -391,7 +412,8 @@ mark.ph{background:#FFE7A3;color:var(--ink);border-radius:4px;padding:0 4px}
   .it.quadro,.it.fichas{display:none}
   .it.cert{left:0;top:64%;width:52%}
   .it.bingo{left:66%;top:58%;width:30%}
-  .tagx.a{top:72%}
+  .stage{margin-bottom:26px}
+  .tagx.a{top:auto;bottom:-24px}
   .step{padding:22px 20px 20px 70px}
 }
 @media (max-width:480px){
@@ -436,7 +458,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '1102207999190568');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
+<noscript><img draggable="false" height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1102207999190568&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
@@ -449,13 +471,14 @@ src="https://www.facebook.com/tr?id=1102207999190568&ev=PageView&noscript=1"
 
   <header class="hero" id="topo">
     <div class="stage" aria-label="Páginas do Kit Leitura Infantil: atividades, guia, quadro de conquistas, fichas, certificado e bingo">
-      <div class="it quadro" style="--d:.25s"><img class="pg zoom" src="img/quadro.jpg" alt="Quadro de conquistas com 60 casas" data-cap="Bônus 2 · Quadro de conquistas" tabindex="0"></div>
-      <div class="it fichas" style="--d:.3s"><img class="pg zoom" src="img/fichas.jpg" alt="Fichas de leitura extras" data-cap="Bônus 5 · Fichas de leitura extras" tabindex="0"></div>
-      <div class="it atv" style="--d:.12s"><img class="pg zoom" src="img/atv-18.jpg" alt="Atividade 16: Família do M" data-cap="Atividade 16 · Família do M" tabindex="0"></div>
-      <div class="it guia" style="--d:.16s"><img class="pg zoom" src="img/guia-capa.jpg" alt="Capa do Guia para os pais" data-cap="Bônus 1 · Guia para os pais" tabindex="0"></div>
-      <div class="it capa" style="--d:0s"><img class="pg zoom" src="img/capa-atividades.jpg" alt="Capa do kit: 60 atividades de leitura" data-cap="Capa do kit · 60 atividades de leitura" tabindex="0"></div>
-      <div class="it cert" style="--d:.4s"><img class="pg land zoom" src="img/certificado.jpg" alt="Certificado de leitor" data-cap="Bônus 4 · Certificado de leitor" tabindex="0"></div>
-      <div class="it bingo" style="--d:.45s"><img class="pg zoom" src="img/bingo.jpg" alt="Cartelas do bingo de sílabas" data-cap="Bônus 3 · Bingo de sílabas" tabindex="0"></div>
+      <div class="it quadro" style="--d:.25s"><img draggable="false" class="pg" src="img/quadro.jpg" alt="Quadro de conquistas com 60 casas"></div>
+      <div class="it fichas" style="--d:.3s"><img draggable="false" class="pg" src="img/fichas.jpg" alt="Fichas de leitura extras"></div>
+      <div class="it atv" style="--d:.12s"><img draggable="false" class="pg" src="img/atv-18.jpg" alt="Atividade 16: Família do M"></div>
+      <div class="it guia" style="--d:.16s"><img draggable="false" class="pg" src="img/guia-capa.jpg" alt="Capa do Guia para os pais"></div>
+      <div class="it capa" style="--d:0s"><img draggable="false" class="pg" src="img/capa-atividades.jpg" alt="Capa do kit: 60 atividades de leitura"></div>
+      <div class="it cert" style="--d:.4s"><img draggable="false" class="pg land" src="img/certificado.jpg" alt="Certificado de leitor"></div>
+      <div class="it bingo" style="--d:.45s"><img draggable="false" class="pg" src="img/bingo.jpg" alt="Cartelas do bingo de sílabas"></div>
+      <span class="seal5" aria-hidden="true"><b>+5</b><span>bônus</span><small>inclusos</small></span>
       <span class="tagx a">60 atividades + 5 bônus</span>
       <span class="tagx b">PDF para imprimir</span>
     </div>
@@ -470,11 +493,43 @@ src="https://www.facebook.com/tr?id=1102207999190568&ev=PageView&noscript=1"
     <div class="chips load-4">
       <div class="chip"><i>60</i> atividades em sequência</div>
       <div class="chip"><i>10</i> min cada</div>
-      <div class="chip"><i>5</i> bônus de reforço</div>
+      <div class="chip hot"><i>+5</i> bônus inclusos</div>
     </div>
     <p class="milestone-mini load-4">📖 Uma atividade por dia e, <b>em 30 dias, seu filho já lê as primeiras palavras</b>.</p>
   </header>
 </div>
+
+<section class="wrap" id="bonus-show">
+  <div class="center stack">
+    <span class="eyebrow">🎁 Incluso no kit</span>
+    <h2>Além das 60 atividades, você ainda leva <span class="n5">5 bônus</span></h2>
+  </div>
+  <div class="bs" aria-roledescription="carrossel" aria-label="Os 5 bônus do kit">
+    <div class="bs-track" id="bsTrack">
+      <article class="bs-slide" data-n="1" style="--c:#FF5E3A" aria-label="Bônus 1 de 5">
+        <div class="bs-shots"><img draggable="false" src="img/guia-capa.jpg" alt="Capa do Guia para os pais"><img draggable="false" src="img/guia-sons.jpg" alt="Guia: como falar o som de cada letra"></div>
+        <div class="bs-txt"><span class="bs-tag">Bônus 1 de 5</span><h3>Guia para os pais</h3><p>Como falar o som de cada letra, os 10 minutos passo a passo e o que fazer quando a criança trava.</p><span class="bs-inc">✓ Incluso no kit</span></div>
+      </article>
+      <article class="bs-slide" data-n="2" style="--c:#3E7BFA" aria-label="Bônus 2 de 5">
+        <div class="bs-shots"><img draggable="false" src="img/quadro.jpg" alt="Quadro de conquistas"><img draggable="false" src="img/adesivos.jpg" alt="Adesivos numerados"></div>
+        <div class="bs-txt"><span class="bs-tag">Bônus 2 de 5</span><h3>Quadro de conquistas + adesivos</h3><p>60 casas e 60 adesivos numerados. A cada atividade, um adesivo novo, e a criança vê o próprio progresso.</p><span class="bs-inc">✓ Incluso no kit</span></div>
+      </article>
+      <article class="bs-slide" data-n="3" style="--c:#22B07D" aria-label="Bônus 3 de 5">
+        <div class="bs-shots"><img draggable="false" src="img/bingo.jpg" alt="Bingo de sílabas"><img draggable="false" src="img/domino.jpg" alt="Dominó de sílabas"></div>
+        <div class="bs-txt"><span class="bs-tag">Bônus 3 de 5</span><h3>Bingo e dominó de sílabas</h3><p>6 cartelas de bingo e 24 peças de dominó para treinar as sílabas brincando em família.</p><span class="bs-inc">✓ Incluso no kit</span></div>
+      </article>
+      <article class="bs-slide" data-n="4" style="--c:#7B5CF0" aria-label="Bônus 4 de 5">
+        <div class="bs-shots"><img draggable="false" class="land" src="img/certificado.jpg" alt="Certificado de leitor"></div>
+        <div class="bs-txt"><span class="bs-tag">Bônus 4 de 5</span><h3>Certificado de leitor</h3><p>“Eu já leio minhas primeiras palavras!” Para imprimir e entregar quando a criança completar o kit.</p><span class="bs-inc">✓ Incluso no kit</span></div>
+      </article>
+      <article class="bs-slide" data-n="5" style="--c:#1B2A5C" aria-label="Bônus 5 de 5">
+        <div class="bs-shots"><img draggable="false" src="img/fichas.jpg" alt="Fichas de palavras"><img draggable="false" src="img/fichas-historias.jpg" alt="Fichas de historinhas"></div>
+        <div class="bs-txt"><span class="bs-tag">Bônus 5 de 5</span><h3>Fichas de leitura extras</h3><p>24 fichas com palavras, frases e historinhas para continuar praticando depois das 60 atividades.</p><span class="bs-inc">✓ Incluso no kit</span></div>
+      </article>
+    </div>
+  </div>
+  <div class="cta-row reveal"><a class="btn btn-big pulse" href="#oferta">Quero o kit com os 5 bônus <span class="arrow" aria-hidden="true">→</span></a></div>
+</section>
 
 <section class="wrap" id="dor">
   <div class="center stack">
@@ -514,7 +569,7 @@ src="https://www.facebook.com/tr?id=1102207999190568&ev=PageView&noscript=1"
       <div class="step reveal"><h3>Aplique em 10 minutos</h3><p>No topo da folha tem o quadro "Para o adulto": o que dizer, o que pedir e como comemorar. Você lê em 30 segundos.</p></div>
     </div>
     <div class="how-img reveal">
-      <img class="pg zoom" src="img/atv-3.jpg" alt="Atividade 1: A vogal A, com o quadro Para o adulto no topo" data-cap="Atividade 1 · A vogal A" tabindex="0">
+      <img draggable="false" class="pg" src="img/atv-3.jpg" alt="Atividade 1: A vogal A, com o quadro Para o adulto no topo">
       <p class="note">↑ a atividade 1, do jeito que você imprime</p>
     </div>
   </div>
@@ -525,20 +580,20 @@ src="https://www.facebook.com/tr?id=1102207999190568&ev=PageView&noscript=1"
   <div class="wrap center stack">
     <span class="eyebrow">Veja por dentro</span>
     <h2>Veja o kit por dentro</h2>
-    <p class="lead">Folhas coloridas, numeradas e prontas para imprimir. Toque em uma página para ver de perto.</p>
+    <p class="lead">Folhas coloridas, numeradas e prontas para imprimir.</p>
   </div>
   <div class="gallery-wrap" tabindex="0" aria-label="Galeria de páginas do kit, role para o lado">
     <div class="gallery">
-      <figure class="gcard"><img class="pg zoom" src="img/atv-3.jpg" alt="Atividade 1" data-cap="Atividade 1 · A vogal A" tabindex="0"><figcaption><b>Atividade 1</b>A vogal A: traçar e achar o som</figcaption></figure>
-      <figure class="gcard"><img class="pg zoom" src="img/atv-12.jpg" alt="Atividade 10" data-cap="Atividade 10 · O som do M" tabindex="0"><figcaption><b>Atividade 10</b>O som do M: "mmm", de boca fechada</figcaption></figure>
-      <figure class="gcard"><img class="pg zoom" src="img/atv-20.jpg" alt="Atividade 18" data-cap="Atividade 18 · Família do F" tabindex="0"><figcaption><b>Atividade 18</b>Família do F: juntar sons e ler</figcaption></figure>
-      <figure class="gcard"><img class="pg zoom" src="img/atv-32.jpg" alt="Atividade 30" data-cap="Atividade 30 · Juntando sílabas" tabindex="0"><figcaption><b>Atividade 30</b>Juntando sílabas para formar palavras</figcaption></figure>
-      <figure class="gcard"><img class="pg zoom" src="img/atv-33.jpg" alt="Atividade 31" data-cap="Atividade 31 · Primeiras palavras" tabindex="0"><figcaption><b>Atividade 31</b>Primeiras palavras lidas sem ajuda</figcaption></figure>
-      <figure class="gcard"><img class="pg zoom" src="img/atv-40.jpg" alt="Atividade 38" data-cap="Atividade 38 · Bata palmas" tabindex="0"><figcaption><b>Atividade 38</b>Bata palmas: contar sílabas brincando</figcaption></figure>
-      <figure class="gcard"><img class="pg zoom" src="img/atv-47.jpg" alt="Atividade 45" data-cap="Atividade 45 · Eu escrevo!" tabindex="0"><figcaption><b>Atividade 45</b>Eu escrevo! Uma sílaba em cada quadradinho</figcaption></figure>
-      <figure class="gcard"><img class="pg zoom" src="img/atv-52.jpg" alt="Atividade 50" data-cap="Atividade 50 · Monte a frase" tabindex="0"><figcaption><b>Atividade 50</b>Monte a frase: recortar e colar</figcaption></figure>
-      <figure class="gcard"><img class="pg zoom" src="img/atv-56.jpg" alt="Atividade 54" data-cap="Atividade 54 · Minha primeira história" tabindex="0"><figcaption><b>Atividade 54</b>A primeira história inteira</figcaption></figure>
-      <figure class="gcard"><img class="pg zoom" src="img/atv-61.jpg" alt="Atividade 59" data-cap="Atividade 59 · Meu livrinho" tabindex="0"><figcaption><b>Atividade 59</b>Meu livrinho para dobrar e ler</figcaption></figure>
+      <figure class="gcard"><img draggable="false" class="pg" src="img/atv-3.jpg" alt="Atividade 1"><figcaption><b>Atividade 1</b>A vogal A: traçar e achar o som</figcaption></figure>
+      <figure class="gcard"><img draggable="false" class="pg" src="img/atv-12.jpg" alt="Atividade 10"><figcaption><b>Atividade 10</b>O som do M: "mmm", de boca fechada</figcaption></figure>
+      <figure class="gcard"><img draggable="false" class="pg" src="img/atv-20.jpg" alt="Atividade 18"><figcaption><b>Atividade 18</b>Família do F: juntar sons e ler</figcaption></figure>
+      <figure class="gcard"><img draggable="false" class="pg" src="img/atv-32.jpg" alt="Atividade 30"><figcaption><b>Atividade 30</b>Juntando sílabas para formar palavras</figcaption></figure>
+      <figure class="gcard"><img draggable="false" class="pg" src="img/atv-33.jpg" alt="Atividade 31"><figcaption><b>Atividade 31</b>Primeiras palavras lidas sem ajuda</figcaption></figure>
+      <figure class="gcard"><img draggable="false" class="pg" src="img/atv-40.jpg" alt="Atividade 38"><figcaption><b>Atividade 38</b>Bata palmas: contar sílabas brincando</figcaption></figure>
+      <figure class="gcard"><img draggable="false" class="pg" src="img/atv-47.jpg" alt="Atividade 45"><figcaption><b>Atividade 45</b>Eu escrevo! Uma sílaba em cada quadradinho</figcaption></figure>
+      <figure class="gcard"><img draggable="false" class="pg" src="img/atv-52.jpg" alt="Atividade 50"><figcaption><b>Atividade 50</b>Monte a frase: recortar e colar</figcaption></figure>
+      <figure class="gcard"><img draggable="false" class="pg" src="img/atv-56.jpg" alt="Atividade 54"><figcaption><b>Atividade 54</b>A primeira história inteira</figcaption></figure>
+      <figure class="gcard"><img draggable="false" class="pg" src="img/atv-61.jpg" alt="Atividade 59"><figcaption><b>Atividade 59</b>Meu livrinho para dobrar e ler</figcaption></figure>
     </div>
   </div>
   <p class="scroll-hint">← arraste para ver mais páginas →</p>
@@ -552,10 +607,10 @@ src="https://www.facebook.com/tr?id=1102207999190568&ev=PageView&noscript=1"
     <p class="lead">A ordem segue o caminho natural da alfabetização. Cada etapa se apoia na anterior, e a criança avança quando estiver pronta.</p>
   </div>
   <div class="weeks">
-    <div class="week w1 reveal"><div class="thumb"><img class="pg zoom" src="img/atv-3.jpg" alt="Exemplo da etapa 1" data-cap="Etapa 1 · Atividade 1" tabindex="0"></div><span class="wk">Etapa 1</span><span class="days">atividades 1 a 15</span><h3>Vogais e sons</h3><span class="ex">A E I O U</span><p>Reconhecer, falar e traçar as vogais, ligando cada som a uma imagem.</p></div>
-    <div class="week w2 reveal"><div class="thumb"><img class="pg zoom" src="img/atv-20.jpg" alt="Exemplo da etapa 2" data-cap="Etapa 2 · Atividade 18" tabindex="0"></div><span class="wk">Etapa 2</span><span class="days">atividades 16 a 30</span><h3>Sílabas simples</h3><span class="ex">BA · BE · BI</span><p>Juntar consoante e vogal e perceber que as sílabas formam palavras.</p></div>
-    <div class="week w3 reveal"><div class="thumb"><img class="pg zoom" src="img/atv-42.jpg" alt="Exemplo da etapa 3" data-cap="Etapa 3 · Atividade 40" tabindex="0"></div><span class="wk">Etapa 3</span><span class="days">atividades 31 a 45</span><h3>Palavras de 2 e 3 sílabas</h3><span class="ex">BOLA · SAPATO</span><p>Ler as primeiras palavras inteiras, com apoio de figuras e jogos.</p></div>
-    <div class="week w4 reveal"><div class="thumb"><img class="pg zoom" src="img/atv-56.jpg" alt="Exemplo da etapa 4" data-cap="Etapa 4 · Atividade 54" tabindex="0"></div><span class="wk">Etapa 4</span><span class="days">atividades 46 a 60</span><h3>Palavras maiores e frases</h3><span class="ex">O GATO BEBE.</span><p>Ler frases curtas e terminar o kit com o certificado na mão.</p></div>
+    <div class="week w1 reveal"><div class="thumb"><img draggable="false" class="pg" src="img/atv-3.jpg" alt="Exemplo da etapa 1"></div><span class="wk">Etapa 1</span><span class="days">atividades 1 a 15</span><h3>Vogais e sons</h3><span class="ex">A E I O U</span><p>Reconhecer, falar e traçar as vogais, ligando cada som a uma imagem.</p></div>
+    <div class="week w2 reveal"><div class="thumb"><img draggable="false" class="pg" src="img/atv-20.jpg" alt="Exemplo da etapa 2"></div><span class="wk">Etapa 2</span><span class="days">atividades 16 a 30</span><h3>Sílabas simples</h3><span class="ex">BA · BE · BI</span><p>Juntar consoante e vogal e perceber que as sílabas formam palavras.</p></div>
+    <div class="week w3 reveal"><div class="thumb"><img draggable="false" class="pg" src="img/atv-42.jpg" alt="Exemplo da etapa 3"></div><span class="wk">Etapa 3</span><span class="days">atividades 31 a 45</span><h3>Palavras de 2 e 3 sílabas</h3><span class="ex">BOLA · SAPATO</span><p>Ler as primeiras palavras inteiras, com apoio de figuras e jogos.</p></div>
+    <div class="week w4 reveal"><div class="thumb"><img draggable="false" class="pg" src="img/atv-56.jpg" alt="Exemplo da etapa 4"></div><span class="wk">Etapa 4</span><span class="days">atividades 46 a 60</span><h3>Palavras maiores e frases</h3><span class="ex">O GATO BEBE.</span><p>Ler frases curtas e terminar o kit com o certificado na mão.</p></div>
   </div>
   <div class="milestone reveal">
     <div class="ms-day"><b>Dia 30</b></div>
@@ -575,8 +630,8 @@ src="https://www.facebook.com/tr?id=1102207999190568&ev=PageView&noscript=1"
       <p class="lead">Cada atividade feita ganha um adesivo numerado no quadro. A criança vê o próprio avanço e pede a próxima, sem você precisar insistir.</p>
       <div class="micro"><span>✓ 60 adesivos imprimíveis inclusos</span><span>✓ Certificado ao completar o kit</span></div>
       <div class="mini-pages">
-        <img class="pg zoom" src="img/quadro.jpg" alt="Quadro de conquistas" data-cap="Quadro de conquistas" tabindex="0">
-        <img class="pg zoom" src="img/adesivos.jpg" alt="Folha de adesivos" data-cap="Folha de adesivos numerados" tabindex="0">
+        <img draggable="false" class="pg" src="img/quadro.jpg" alt="Quadro de conquistas">
+        <img draggable="false" class="pg" src="img/adesivos.jpg" alt="Folha de adesivos">
       </div>
     </div>
     <div class="board journey" id="journey" aria-label="A jornada da leitura, do dia 1 ao dia 60">
@@ -606,11 +661,11 @@ src="https://www.facebook.com/tr?id=1102207999190568&ev=PageView&noscript=1"
     <p class="lead">Cada um tem uma função no kit. Nada de material solto só para fazer volume.</p>
   </div>
   <div class="bonus-grid">
-    <div class="bonus reveal"><div class="bshots"><img class="pg zoom" src="img/guia-sons.jpg" alt="Guia: como falar o som de cada letra" data-cap="Guia para os pais · Como falar o som de cada letra" tabindex="0"><img class="pg zoom" src="img/guia-trava.jpg" alt="Guia: quando a criança trava" data-cap="Guia para os pais · Quando a criança trava" tabindex="0"></div><span class="tag">Bônus 1</span><h3>Guia para os pais</h3><p>Como falar o som de cada letra, os 10 minutos passo a passo e o que fazer quando a criança trava.</p></div>
-    <div class="bonus reveal"><div class="bshots"><img class="pg zoom" src="img/quadro.jpg" alt="Quadro de conquistas" data-cap="Quadro de conquistas" tabindex="0"><img class="pg zoom" src="img/adesivos.jpg" alt="Adesivos" data-cap="Adesivos numerados" tabindex="0"></div><span class="tag">Bônus 2</span><h3>Quadro de conquistas</h3><p>Quadro com 60 casas e 60 adesivos numerados para marcar cada atividade feita.</p></div>
-    <div class="bonus reveal"><div class="bshots"><img class="pg zoom" src="img/bingo.jpg" alt="Bingo de sílabas" data-cap="Bingo de sílabas" tabindex="0"><img class="pg zoom" src="img/domino.jpg" alt="Dominó de sílabas" data-cap="Dominó de sílabas" tabindex="0"></div><span class="tag">Bônus 3</span><h3>Bingo e dominó de sílabas</h3><p>6 cartelas de bingo e 24 peças de dominó para a família treinar as sílabas brincando.</p></div>
-    <div class="bonus reveal"><div class="bshots"><img class="pg land zoom" src="img/certificado.jpg" alt="Certificado de leitor" data-cap="Certificado de leitor" tabindex="0"></div><span class="tag">Bônus 4</span><h3>Certificado de leitor</h3><p>“Eu já leio minhas primeiras palavras!”, para imprimir e entregar quando a criança completar o kit.</p></div>
-    <div class="bonus reveal"><div class="bshots"><img class="pg zoom" src="img/fichas.jpg" alt="Fichas de palavras" data-cap="Fichas de leitura · palavras" tabindex="0"><img class="pg zoom" src="img/fichas-historias.jpg" alt="Fichas de historinhas" data-cap="Fichas de leitura · historinhas" tabindex="0"></div><span class="tag">Bônus 5</span><h3>Fichas de leitura extras</h3><p>24 fichas com palavras, frases e historinhas para continuar praticando depois das 60 atividades.</p></div>
+    <div class="bonus reveal"><div class="bshots"><img draggable="false" class="pg" src="img/guia-sons.jpg" alt="Guia: como falar o som de cada letra"><img draggable="false" class="pg" src="img/guia-trava.jpg" alt="Guia: quando a criança trava"></div><span class="tag">Bônus 1</span><h3>Guia para os pais</h3><p>Como falar o som de cada letra, os 10 minutos passo a passo e o que fazer quando a criança trava.</p></div>
+    <div class="bonus reveal"><div class="bshots"><img draggable="false" class="pg" src="img/quadro.jpg" alt="Quadro de conquistas"><img draggable="false" class="pg" src="img/adesivos.jpg" alt="Adesivos"></div><span class="tag">Bônus 2</span><h3>Quadro de conquistas</h3><p>Quadro com 60 casas e 60 adesivos numerados para marcar cada atividade feita.</p></div>
+    <div class="bonus reveal"><div class="bshots"><img draggable="false" class="pg" src="img/bingo.jpg" alt="Bingo de sílabas"><img draggable="false" class="pg" src="img/domino.jpg" alt="Dominó de sílabas"></div><span class="tag">Bônus 3</span><h3>Bingo e dominó de sílabas</h3><p>6 cartelas de bingo e 24 peças de dominó para a família treinar as sílabas brincando.</p></div>
+    <div class="bonus reveal"><div class="bshots"><img draggable="false" class="pg land" src="img/certificado.jpg" alt="Certificado de leitor"></div><span class="tag">Bônus 4</span><h3>Certificado de leitor</h3><p>“Eu já leio minhas primeiras palavras!”, para imprimir e entregar quando a criança completar o kit.</p></div>
+    <div class="bonus reveal"><div class="bshots"><img draggable="false" class="pg" src="img/fichas.jpg" alt="Fichas de palavras"><img draggable="false" class="pg" src="img/fichas-historias.jpg" alt="Fichas de historinhas"></div><span class="tag">Bônus 5</span><h3>Fichas de leitura extras</h3><p>24 fichas com palavras, frases e historinhas para continuar praticando depois das 60 atividades.</p></div>
   </div>
   <div class="cta-row reveal"><a class="btn btn-big pulse" href="#oferta">Quero o kit com os 5 bônus <span class="arrow" aria-hidden="true">→</span></a></div>
 </section>
@@ -663,13 +718,13 @@ src="https://www.facebook.com/tr?id=1102207999190568&ev=PageView&noscript=1"
         <li><span>24 fichas de leitura extras</span></li>
       </ul>
       <div class="offer-shots">
-        <figure><img class="pg zoom" src="img/capa-atividades.jpg" alt="60 atividades" data-cap="60 atividades de leitura" tabindex="0"><figcaption>60 atividades</figcaption></figure>
-        <figure><img class="pg zoom" src="img/guia-capa.jpg" alt="Guia para os pais" data-cap="Bônus 1 · Guia para os pais" tabindex="0"><figcaption>Guia para os pais</figcaption></figure>
-        <figure><img class="pg zoom" src="img/quadro.jpg" alt="Quadro de conquistas" data-cap="Bônus 2 · Quadro de conquistas" tabindex="0"><figcaption>Quadro + adesivos</figcaption></figure>
-        <figure><img class="pg zoom" src="img/bingo.jpg" alt="Bingo de sílabas" data-cap="Bônus 3 · Bingo de sílabas" tabindex="0"><figcaption>Bingo de sílabas</figcaption></figure>
-        <figure class="wide"><img class="pg land zoom" src="img/certificado.jpg" alt="Certificado de leitor" data-cap="Bônus 4 · Certificado de leitor" tabindex="0"><figcaption>Certificado</figcaption></figure>
-        <figure><img class="pg zoom" src="img/fichas.jpg" alt="Fichas de leitura extras" data-cap="Bônus 5 · Fichas de leitura extras" tabindex="0"><figcaption>24 fichas extras</figcaption></figure>
-        <figure><img class="pg zoom" src="img/domino.jpg" alt="Dominó de sílabas" data-cap="Bônus 3 · Dominó de sílabas" tabindex="0"><figcaption>Dominó de sílabas</figcaption></figure>
+        <figure><img draggable="false" class="pg" src="img/capa-atividades.jpg" alt="60 atividades"><figcaption>60 atividades</figcaption></figure>
+        <figure><img draggable="false" class="pg" src="img/guia-capa.jpg" alt="Guia para os pais"><figcaption>Guia para os pais</figcaption></figure>
+        <figure><img draggable="false" class="pg" src="img/quadro.jpg" alt="Quadro de conquistas"><figcaption>Quadro + adesivos</figcaption></figure>
+        <figure><img draggable="false" class="pg" src="img/bingo.jpg" alt="Bingo de sílabas"><figcaption>Bingo de sílabas</figcaption></figure>
+        <figure class="wide"><img draggable="false" class="pg land" src="img/certificado.jpg" alt="Certificado de leitor"><figcaption>Certificado</figcaption></figure>
+        <figure><img draggable="false" class="pg" src="img/fichas.jpg" alt="Fichas de leitura extras"><figcaption>24 fichas extras</figcaption></figure>
+        <figure><img draggable="false" class="pg" src="img/domino.jpg" alt="Dominó de sílabas"><figcaption>Dominó de sílabas</figcaption></figure>
       </div>
     </div>
     <div class="price-box">
@@ -777,10 +832,6 @@ src="https://www.facebook.com/tr?id=1102207999190568&ev=PageView&noscript=1"
   <a class="btn pulse" href="#oferta" tabindex="-1">Garantir o meu</a>
 </div>
 
-<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Página ampliada">
-  <button type="button" id="lb-close" aria-label="Fechar">✕</button>
-  <div><img id="lb-img" src="" alt=""><p id="lb-cap"></p></div>
-</div>
 
 <script>
 (function(){
@@ -893,25 +944,6 @@ src="https://www.facebook.com/tr?id=1102207999190568&ev=PageView&noscript=1"
     document.querySelectorAll('.legal').forEach(function(box){ if (!box.hidden) closeLegal(box); });
   });
 
-  // Ver página ampliada
-  var lb = document.getElementById('lightbox'), lbImg = document.getElementById('lb-img'), lbCap = document.getElementById('lb-cap');
-  var lastFocus = null;
-  function openLb(img){
-    lastFocus = img;
-    lbImg.src = img.src; lbImg.alt = img.alt;
-    lbImg.className = img.classList.contains('land') ? 'land' : '';
-    lbCap.textContent = img.getAttribute('data-cap') || img.alt;
-    lb.hidden = false;
-    document.getElementById('lb-close').focus();
-  }
-  function closeLb(){ lb.hidden = true; if (lastFocus) lastFocus.focus(); }
-  document.querySelectorAll('img.zoom').forEach(function(img){
-    img.addEventListener('click', function(){ openLb(img); });
-    img.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(img); } });
-  });
-  lb.addEventListener('click', closeLb);
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !lb.hidden) closeLb(); });
-
   // Barra fixa no celular: aparece depois do topo, some na oferta
   var sticky = document.getElementById('sticky');
   var hero = document.getElementById('topo');
@@ -937,6 +969,34 @@ src="https://www.facebook.com/tr?id=1102207999190568&ev=PageView&noscript=1"
   }
   var btn = document.getElementById('checkout');
   if (btn) btn.addEventListener('click', function(){ fbq('track', 'InitiateCheckout', {content_name:'Kit Leitura Infantil', value:27.90, currency:'BRL'}); });
+})();
+</script>
+<script>
+// Carrossel dos 5 bônus: passa sozinho sem parar, em loop. A pessoa ainda pode arrastar.
+(function(){
+  var track = document.getElementById('bsTrack'); if (!track) return;
+  if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var originals = [].slice.call(track.children);
+  originals.forEach(function(s){
+    var c = s.cloneNode(true);
+    c.setAttribute('aria-hidden', 'true');
+    track.appendChild(c);
+  });
+  var pos = 0, last = 0, hold = 0, speed = 70;
+  function setW(){ return track.children[originals.length].offsetLeft - track.children[0].offsetLeft; }
+  function pause(){ hold = performance.now() + 2500; }
+  ['pointerdown','touchstart','touchmove','wheel'].forEach(function(ev){ track.addEventListener(ev, pause, {passive:true}); });
+  function tick(now){
+    var dt = Math.min(now - last, 60); last = now;
+    if (now < hold) { pos = track.scrollLeft; }
+    else {
+      pos += speed * dt / 1000;
+      var w = setW(); if (w > 0 && pos >= w) pos -= w;
+      track.scrollLeft = pos;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(function(t){ last = t; tick(t); });
 })();
 </script>
 </body>
